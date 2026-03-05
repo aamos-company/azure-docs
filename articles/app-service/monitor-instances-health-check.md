@@ -44,6 +44,7 @@ Note that _/api/health_ is just an example. There's no default Health check path
 > - Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. 
 > - The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, the path should return a 500-level response code to indicate that the app is unhealthy. Also, if the path doesn't return a response within one minute, the health check ping is considered unhealthy.
 > - When selecting the Health check path, make sure you're selecting a path that returns a 200 status code only when the app is fully warmed up.
+> - It is recommended to also enable Always On to get the most conistent data, as Health Check is only active when the application is active.
 > - To use Health check on a function app, you must use a [premium or dedicated hosting plan](../azure-functions/functions-scale.md#overview-of-plans).
 > - For details about Health check on function apps, see [Monitor function apps using Health check](../azure-functions/configure-monitoring.md?#monitor-function-apps-using-health-check).
 
